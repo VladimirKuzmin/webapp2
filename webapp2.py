@@ -419,7 +419,7 @@ class Response(webob.Response):
         if six.PY3 and isinstance(text, bytes):
             text = text.decode(self.default_charset)
 
-        if not isinstance(text, six.string_types):
+        if not isinstance(text, (six.binary_type, six.text_type)):
             text = six.text_type(text)
 
         if isinstance(text, six.text_type) and not self.charset:
